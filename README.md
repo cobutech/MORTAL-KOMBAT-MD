@@ -24,7 +24,7 @@
    * *In order to set up this bot to your WhatsApp account,*
       * *`You must fork the repo`*
        <br>
-<p align="center"><a href="https://github.com/cobutech/MORTAL-KOMBAT-MD">
+<p align="center"><a href="https://github.com/cobutech/MORTAL-KOMBAT-MD/fork">
  <img src="https://img.shields.io/badge/fork%20repo%20-black?style=for-the-badge&logo=github" width="180" height="27"/></a></p>
  
      
