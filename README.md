@@ -2,23 +2,22 @@
 <p align="center">  
  <a href="https://github.com/calvineonyango/MORTAL-KOMBAT-MD"><img title="GËTMØRTÄL KØMBÄT" src="https://img.shields.io/badge/MØRTÄL KØMBÄT VËSÏØN 1️⃣-h?color=darkred&style=for-the-badge&logo=dragon" width="220" height="38.45"/></a></p>
 
-#   <p align="center">  *MØRTÄL KØMBÄT VËSÏØN 2️⃣*
+#   <p align="center">  *MØRTÄL KØMBÄT VËSÏØN-MD1️⃣*
 ****
-<p align="center">
-  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Ribeye&size=50&pause=1000&color=F71HG01&center=true&width=910&height=100&lines=This+Is+MØRTÄL+KØMBÄT-MD;MULTI+DEVICE+WHATSAPP+BOT;CREATED+BY+CØBU-TECH;COMING+SOONER." alt="Typing SVG" /></a>
- 
-****
-</p>
-    <img alt="MØRTÄL KØMBÄ-MD" width="500" height="420" src="https://telegra.ph/file/ebfe42de04f5cb5a6e647.jpg">
-    
+<p   
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Black+Ops+One&size=50&pause=1000&color=GHTAFBAFF&center=true&width=910&height=100&lines=I'M+MØRTÄL+KØMBÄT-MD;CRËÄTËD+BY+ÇÆLVÏÑË+ØBÜ-TECH" alt="Typing SVG" /></a>
+<a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
+  </p>
+    <img alt="MØRTÄL KØMBÄT-MD" width="500" height="400" src="https://telegra.ph/file/a09f5a7060a46f3ab578f.jpg"
+     
 ****
 <br>
-<p align="center"><a href="https://github.com/cobutech/DEATH-STROKE-MD">
- <img src="https://img.shields.io/badge/X%20FØRCË%20MD%20-darkgreen?style=for-the-badge&logo=github" width="180" height="27"/></a></p>
+<p align="center"><a href="https://github.com/cobutech/MORTAL-KOMBAT-MD">
+ <img src="https://img.shields.io/badge/MØRTÄL%20KØMBÄT%20VËSÏØN%20MD1️⃣%20-darkgreen?style=for-the-badge&logo=github" width="200" height="27"/></a></p>
  
  ****
 
-*X-FŌRCË-MD is a WhatsApp bot created bt ` ÇÆLVÏÑË ØBÜ-MD___TËCH`*
+*MMØRTÄL KØMBÄT VËSÏØN-MD1️⃣ is a WhatsApp bot created bt ` ÇÆLVÏÑË ØBÜ-MD___TËCH`*
 
 *****
    # *SËT-ÜP*
