@@ -44,7 +44,7 @@
  <img src="https://img.shields.io/badge/Create%20Accoun-purple?style=for-the-badge&logo=heroku" width="200" height="30"/></a></p>
  
    * *(2) Deploy it from 👇 if you already have one*
-    <p align="center"><a href="https://dashboard.heroku.com/new?button-url=https://github.com/cobutech/MORTAL-KOMBAT-MD-cobutech-&template=https://github.com/cobutech/MORTAL-KOMBAT-MD-cobutech-"> <img src="https://img.shields.io/badge/DEPLOY%20NOW-purple?style=for-the-badge&logo=heroku" width="200" height="30"/></a></p>
+    <p align="center"><a href="https://dashboard.heroku.com/new?button-url=https://github.com/cobutech/MORTAL-KOMBAT-MD&template=https://github.com/cobutech/MORTAL-KOMBAT-MD-"> <img src="https://img.shields.io/badge/DEPLOY%20NOW-purple?style=for-the-badge&logo=heroku" width="200" height="30"/></a></p>
     
 *****
  * *{NB}*
