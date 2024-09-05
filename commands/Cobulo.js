@@ -1,4 +1,4 @@
-const { xforcemd } = require("../framework/xforcemd"); // Changed 'zokou' to 'xforcemd'
+Iconst { xforcemd } = require("../framework/xforcemd"); // Changed 'zokou' to 'xforcemd'
 var mumaker = require("mumaker");
 
 xforcemd(
@@ -853,4 +853,631 @@ xforcemd(
   }
 );
 
+xforcemd({ nomCom: "fire", categorie: "Logo", reaction: "🔥" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}fire MyText`);
+        return;
+    }
 
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/create-a-fiery-text-effect-online-free-1085.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Fire Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "ice", categorie: "Logo", reaction: "❄️" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}ice MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/ice-cold-text-effect-849.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Ice Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "metal", categorie: "Logo", reaction: "🔩" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}metal MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/metallic-text-effect-842.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Metal Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "retro", categorie: "Logo", reaction: "🎮" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}retro MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/80-s-retro-neon-text-effect-online-979.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Retro Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "matrix", categorie: "Logo", reaction: "🟢" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}matrix MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/matrix-style-text-effect-online-884.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Matrix Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "magma", categorie: "Logo", reaction: "🌋" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}magma MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/create-a-magma-hot-text-effect-online-1030.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Magma Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "demon", categorie: "Logo", reaction: "👹" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}demon MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/create-neon-devil-wings-text-effect-online-free-1014.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Demon Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "orange", categorie: "Logo", reaction: "🍊" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}orange MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/create-an-orange-juice-text-effect-1009.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Orange Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "leaves", categorie: "Logo", reaction: "🍂" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}leaves MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/create-leaves-fall-text-effect-online-991.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Leaves Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+
+xforcemd({ nomCom: "joker", categorie: "Logo", reaction: "🃏" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}joker MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/create-logo-joker-online-934.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Joker Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "graffiti", categorie: "Logo", reaction: "🎨" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}graffiti MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/create-a-cool-graffiti-text-on-the-wall-1004.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Graffiti Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "lava", categorie: "Logo", reaction: "🌋" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}lava MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/lava-text-effect-online-914.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Lava Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "smoke", categorie: "Logo", reaction: "💨" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}smoke MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/create-smoke-text-effect-online-free-1029.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Smoke Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "rainbow", categorie: "Logo", reaction: "🌈" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}rainbow MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/create-a-rainbow-text-effect-online-973.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Rainbow Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "chocolate", categorie: "Logo", reaction: "🍫" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}chocolate MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/chocolate-cake-text-effect-890.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Chocolate Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+
+xforcemd({ nomCom: "blood", categorie: "Logo", reaction: "🩸" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}blood MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/horror-blood-text-effect-online-883.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Blood Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "neon", categorie: "Logo", reaction: "💡" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}neon MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/neon-text-effect-online-879.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Neon Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "wood", categorie: "Logo", reaction: "🌳" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}wood MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/wood-text-effect-free-online-973.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Wood Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "glitch", categorie: "Logo", reaction: "🎛️" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}glitch MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/create-impressive-glitch-text-effects-online-1027.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Glitch Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "horror", categorie: "Logo", reaction: "👻" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}horror MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/create-a-scary-halloween-text-effect-online-1048.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Horror Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "galaxy", categorie: "Logo", reaction: "🌌" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}galaxy MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/create-galaxy-style-free-text-effect-online-1055.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Galaxy Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "firework", categorie: "Logo", reaction: "🎆" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}firework MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/firework-sparkle-text-effect-930.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Firework Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "candy", categorie: "Logo", reaction: "🍬" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}candy MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/sweet-candy-text-effect-868.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Candy Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "stone", categorie: "Logo", reaction: "🪨" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}stone MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/3d-stone-cracked-cool-text-effect-1029.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Stone Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "thunder", categorie: "Logo", reaction: "⚡" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}thunder MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/online-thunder-text-effect-generator-1031.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Thunder Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "3d", categorie: "Logo", reaction: "📐" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}3d MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/3d-box-text-effect-online-880.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*3D Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "bubble", categorie: "Logo", reaction: "🫧" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}bubble MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/bubble-text-effect-829.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Bubble Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+  
+xforcemd({ nomCom: "sketch", categorie: "Logo", reaction: "🖊️" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}sketch MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/create-a-sketch-text-effect-online-1044.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Sketch Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "watercolor", categorie: "Logo", reaction: "🎨" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}watercolor MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/create-watercolor-text-effect-online-704.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Watercolor Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "sand", categorie: "Logo", reaction: "🏖️" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}sand MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/sand-text-effect-online-998.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Sand Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "moon", categorie: "Logo", reaction: "🌕" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}moon MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/moon-text-effect-online-1024.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Moon Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "glitter", categorie: "Logo", reaction: "✨" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}glitter MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/glitter-text-effect-online-839.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Glitter Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "space", categorie: "Logo", reaction: "🚀" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}space MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/space-text-effect-online-945.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Space Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "circuit", categorie: "Logo", reaction: "💻" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}circuit MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/create-blue-circuit-style-text-effect-online-1043.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Circuit Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "ink", categorie: "Logo", reaction: "🖋️" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}ink MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/create-3d-black-and-white-ink-splash-text-effect-online-994.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Ink Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "8bit", categorie: "Logo", reaction: "🕹️" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}8bit MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/video-game-classic-8-bit-text-effect-1037.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*8bit Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "ice", categorie: "Logo", reaction: "❄️" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}ice MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/ice-cold-text-effect-849.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Ice Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "cloud", categorie: "Logo", reaction: "☁️" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}cloud MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/create-cloud-text-effect-online-free-1061.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Cloud Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+
+xforcemd({ nomCom: "lightning", categorie: "Logo", reaction: "⚡" }, async (dest, zk, commandeOptions) => {
+    const { arg, repondre, ms, prefixe } = commandeOptions;
+    if (!arg || arg == "") {
+        repondre(`Example: ${prefixe}lightning MyText`);
+        return;
+    }
+
+    const text = arg.join(" ");
+    try {
+        const maker = await mumaker.textpro("https://textpro.me/thunder-text-effect-online-881.html", text);
+        await zk.sendMessage(dest, { image: { url: maker.image }, caption: '*Lightning Logo created by xforcemd*' }, { quoted: ms });
+    } catch (e) {
+        repondre(`🥵 Error: ${e}`);
+    }
+});
+          
+          
+      
