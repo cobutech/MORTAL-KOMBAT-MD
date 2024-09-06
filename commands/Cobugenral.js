@@ -116,27 +116,64 @@ xforcemd({ nomCom: "ping", category: "General", reaction: "🟢" }, async (dest,
         reply("Unable to fetch uptime status, please try again later.");
     }
 });
-// Help Command: Lists all available commands
+// Updated Help Command: Lists all available commands with descriptions
 xforcemd({ nomCom: "help", category: "General", reaction: "🆘" }, async (dest, zk, commandOptions) => {
     const { reply } = commandOptions;
 
     const helpMessage = `
 🆘 *Help Menu* 🆘
 Here are the available commands:
+
+**General Commands:**
 - *owner*: Shows the bot owner's information.
 - *dev*: Lists the developers.
-- *support*: Provides support contact link.
+- *support*: Provides a support contact link.
 - *ping*: Shows the bot's uptime.
-- *status*: Shows current bot status including memory and CPU usage.
-- *broadcast*: Sends a message to all subscribers.
+- *status*: Shows current bot status, including memory and CPU usage.
+- *todo*: Manages your to-do list (add, view, remove tasks).
+- *weather forecast*: Provides a 7-day weather forecast for a specified location.
+- *roll*: Rolls multiple dice with a specified number of sides.
+- *riddle*: Sends a random riddle.
+- *translate text*: Translates a block of text between languages.
+- *ping website*: Checks the availability of a website and provides its response time.
+- *meme*: Fetches a random meme.
+- *countdown*: Sets up a countdown timer for a specified duration.
+- *word of the day*: Sends a word of the day with its definition and example.
+- *joke of the day*: Sends a daily joke to lighten the mood.
+- *recipe*: Provides a random recipe or one based on specified ingredients.
+- *horoscope*: Provides daily horoscope readings based on your zodiac sign.
+- *track package*: Tracks the status of a package based on the tracking number.
+- *reminder list*: Lists all reminders set by the user.
+- *currency rates*: Provides the latest exchange rates for a specified currency.
+- *random quote*: Sends a random inspirational quote.
+
+**Utility Commands:**
+- *convert*: Converts units of measurement (e.g., length, weight, temperature).
+- *weather alert*: Sets up a weather alert for severe conditions in a specified location.
+- *currency*: Converts currencies based on the latest exchange rates.
+- *shorten*: Shortens long URLs into shorter links.
+- *random number*: Generates a random number within a specified range.
+- *emojify*: Converts text into an emoji-styled message.
+- *calculate age*: Calculates your age based on your birth date.
+- *remindme*: Sets a one-time reminder for a specific time.
+- *lyrics*: Fetches the lyrics of a specified song.
+- *profile*: Displays your profile information.
+- *quote of the day*: Sends a daily motivational quote.
+
+**Admin Commands:**
+- *broadcast*: Sends a message to all subscribers (Admin only).
 - *restart*: Restarts the bot (Admin only).
 - *mute*: Disables bot responses in the current chat (Admin only).
 - *unmute*: Re-enables bot responses (Admin only).
-- *ban*: Bans a user from using the bot (Admin only).
+- *ban*: Bans a user from interacting with the bot (Admin only).
 - *unban*: Unbans a previously banned user (Admin only).
-- *weather [location]*: Provides current weather for a specified location.
-- *joke*: Sends a random joke.
-    `;
+- *boton*: Turns the bot on, allowing it to respond to commands (Admin only).
+- *off*: Turns the bot off, disabling it from responding to commands (Admin only).
+
+To use a command, type the command followed by any required parameters, e.g., /ping or /todo add Buy groceries.
+
+Enjoy using the bot! 🤖
+`;
 
     reply(helpMessage);
 });
@@ -849,4 +886,41 @@ xforcemd({ nomCom: "countdown", category: "General", reaction: "⏳" }, async (d
         reply("Failed to set the countdown. Please try again");
     }
 });
-  
+  // Bot On Command: Turns the bot on, allowing it to respond to commands
+xforcemd({ nomCom: "boton", category: "Admin", reaction: "🟢" }, async (dest, zk, commandOptions) => {
+    const { reply, isAdmin, setBotStatus } = commandOptions; // Assuming setBotStatus changes bot status
+
+    // Check if the user is an admin
+    if (!isAdmin) {
+        reply("🚫 You do not have permission to turn the bot on.");
+        return;
+    }
+
+    try {
+        await setBotStatus(true); // Set bot status to on
+        reply("🟢 Bot is now ON and ready to respond to commands.");
+    } catch (error) {
+        console.error("Error turning the bot on:", error);
+        reply("Failed to turn the bot on. Please try again.");
+    }
+});
+
+// Off Command: Turns the bot off, disabling it from responding to commands
+xforcemd({ nomCom: "off", category: "Admin", reaction: "🔴" }, async (dest, zk, commandOptions) => {
+    const { reply, isAdmin, setBotStatus } = commandOptions; // Assuming setBotStatus changes bot status
+
+    // Check if the user is an admin
+    if (!isAdmin) {
+        reply("🚫 You do not have permission to turn the bot off.");
+        return;
+    }
+
+    try {
+        await setBotStatus(false); // Set bot status to off
+        reply("🔴 Bot is now OFF and will not respond to commands.");
+    } catch (error) {
+        console.error("Error turning the bot off:", error);
+        reply("Failed to turn the bot off. Please try again.");
+    }
+});
+            
