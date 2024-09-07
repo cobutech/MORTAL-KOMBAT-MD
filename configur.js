@@ -15,10 +15,10 @@ const DATABASE_URL = process.env.DATABASE_URL || databasePath;
 module.exports = {
     // Configuration settings
     session: process.env.SESSION_ID || 'xforcemd', // paste your setion id here 
-    STATE: process.env.ETAT,'', // Translated to English
-    PREFIX: process.env.PREFIXE,'', // Command prefix
+    STATE: process.env.ETAT||'', // Translated to English
+    PREFIX: process.env.PREFIXE||'@', // Command prefix
     OWNER_NAME: process.env.NOM_OWNER || "xforcemd-Md", // Bot owner name
-    OWNER_NUMBER: process.env.NUMERO_OWNER,'' ,// Bot owner's contact number
+    OWNER_NUMBER: process.env.NUMERO_OWNER||'' ,// Bot owner's contact number
     AUTO_READ_STATUS: process.env.LECTURE_AUTO_STATUS || "no", // Auto-read messages setting
     AUTO_DOWNLOAD_STATUS: process.env.TELECHARGER_AUTO_STATUS || 'no', // Auto-download setting
     MODE: process.env.MODE_PUBLIC || 'private', // Mode (public or private)
