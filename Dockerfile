@@ -1,5 +1,6 @@
 FROM node:lts-buster
 
+# Update and install necessary dependencies
 RUN apt-get update && \
   apt-get install -y \
   ffmpeg \
@@ -8,18 +9,23 @@ RUN apt-get update && \
   apt-get upgrade -y && \
   npm i pm2 -g && \
   rm -rf /var/lib/apt/lists/*
-  
-RUN git clone https://github.com/djalega8000/Zokou-2.0  /root/Zokou_BOt
-WORKDIR /root/Zokou_Bot/
 
+# Clone the xforcemd repository from cobutech's GitHub
+RUN git clone https://github.com/cobutech/xforcemd-2.0 /root/xforcemd_Bot
 
+# Set working directory
+WORKDIR /root/xforcemd_Bot/
+
+# Copy the package.json and install dependencies
 COPY package.json .
-run npm install -g npm@10.2.4
-RUN npm install pm2 -g
-RUN npm install --legacy-peer-deps
+RUN npm install -g npm@10.2.4 && \
+  npm install --legacy-peer-deps
 
+# Copy the entire codebase
 COPY . .
 
+# Expose port 5000
 EXPOSE 5000
 
+# Start the application
 CMD ["node", "index.js"]
