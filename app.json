@@ -1,0 +1,116 @@
+{
+  "name": "xforcemd-2.0",
+  "description": "WhatsApp bot developed by COBU-TECH",
+  "keywords": ["bot", "node", "baileys", "whatsapp"],
+  "logo": "https://raw.githubusercontent.com/djalega8000/xforcemd-2.0/main/xforcemd.jpg",
+  "repository": "https://github.com/djalega8000/xforcemd-2.0",
+  "succes_url": "/",
+  "stack": "container",
+  "env": {
+    "PREFIXE": {
+      "description": "Choose your prefix",
+      "value": "#",
+      "required": true
+    },
+    "LECTURE_AUTO_STATUS": {
+      "description": "The bot will automatically read all statuses (yes to enable and no to disable)",
+      "value": "yes",
+      "required": false
+    },
+    "TELECHARGER_AUTO_STATUS": {
+      "description": "The bot will automatically download all statuses (yes to enable and no to disable)",
+      "value": "yes",
+      "required": false
+    },
+    "NOM_BOT": {
+      "description": "A name for your bot",
+      "value": "xforcemd-MD",
+      "required": false
+    },
+    "LIENS_MENU": {
+      "description": "Add one or more image or video links for your bot; example: link1,link2,link3...",
+      "value": "https://wallpapercave.com/uwp/uwp3943464.jpeg",
+      "required": false
+    },
+    "PM_PERMIT": {
+      "description": "Commands will not work privately for other users (yes to enable and no to disable)",
+      "value": "no",
+      "required": false
+    },
+    "MODE_PUBLIC": {
+      "description": "Yes for public mode or no for private mode (In this case only you will use the bot)",
+      "value": "yes",
+      "required": false
+    },
+    "DEBUG_MODE": {
+      "description": "Enable debug mode to show detailed logs (true for enable, false for disable)",
+      "value": "false",
+      "required": false
+    },
+    "LOG_LEVEL": {
+      "description": "Set the logging level (error, warn, info, debug)",
+      "value": "info",
+      "required": false
+    },
+    "LANGUAGE": {
+      "description": "Set the language for the bot's responses (en for English, fr for French, etc.)",
+      "value": "en",
+      "required": false
+    },
+    "HEROKU_APY_KEY": {
+      "description": "Insert the API key from your Heroku account",
+      "required": false
+    },
+    "HEROKU_APP_NAME": {
+      "description": "Insert the name you provided (APP NAME) at the very beginning",
+      "required": false
+    },
+    "ETAT": {
+      "description": "Indicate your status: 1 to signal you are online even if you are not, 2 to show that you are typing, 3 to signal you are recording audio, or leave the field empty for your real status.",
+      "value": "1",
+      "required": false
+    },
+    "SESSION_ID": {
+      "description": "Please provide your session ID",
+      "value": "",
+      "required": true
+    },
+    "NOM_OWNER": {
+      "description": "Your name",
+      "required": false,
+      "value": "COBU-TECH"
+    },
+    "NUMERO_OWNER": {
+      "description": "Your phone number; it should be in the format ID+number",
+      "required": false,
+      "value": "254796281776"
+    },
+    "WARN_COUNT": {
+      "description": "This is the warning limit count",
+      "required": false,
+      "value": "3"
+    },
+    "STARTING_BOT_MESSAGE": {
+      "description": "Set to yes if you want the bot's startup message sent in private, or no if you don't want it",
+      "required": true,
+      "value": "yes"
+    },
+    "ANTI_DELETE_MESSAGE": {
+      "description": "Set to yes if you want deleted messages sent to you privately",
+      "required": false,
+      "value": "no"
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql"
+    }
+  ]
+}
+
