@@ -1,267 +1,383 @@
-const { xforcemd } = require('../framework/zokou');
-const translate = require("../framework/traduction");
+/*𝐗═𝐅𝐎𝐑𝐂𝐄═𝐌𝐃{𝐕𝐎𝐋²}
+           𝑰
+𝑨𝑴 𝑪𝑹𝑨𝑻𝑬𝑫 𝑩𝒀 𝑪𝑶𝑩𝑼_𝑻𝑬𝑪𝑯*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const { xforcemd } = require('../framework/xforcemd');
+const translate = require("../framework/translation");
 const axios = require('axios');
 
-// bot command
-xforcemd({ commandName: "bot", reaction: "📡", category: "AI" }, async (dest, zk, commandOptions) => {
-  const { respond, msg, arg } = commandOptions;
-
-  if (!arg || !arg[0]) {
-    return respond("Yes, I am listening.");
-  }
+// Bot response command
+xforcemd({nomCom:"bot",reaction:"📡",categorie:"AI"},async(dest,zk,commandeOptions)=>{
+  const {repondre,ms,arg}=commandeOptions;
+  
+    if(!arg || !arg[0]) { return repondre("Yes, I'm listening."); }
 
   try {
     const message = await translate(arg.join(' '), { to: 'en' });
     console.log(message);
-
+    
     fetch(`http://api.brainshop.ai/get?bid=177607&key=NwzhALqeO1kubFVD&uid=[uid]&msg=${message}`)
-      .then(response => response.json())
-      .then(data => {
-        const botResponse = data.cnt;
-        console.log(botResponse);
+    .then(response => response.json())
+    .then(data => {
+      const botResponse = data.cnt;
+      console.log(botResponse);
 
-        translate(botResponse, { to: 'fr' })
-          .then(translatedResponse => {
-            respond(translatedResponse);
-          })
-          .catch(error => {
-            console.error('Error during translation to French:', error);
-            respond('Error during translation to French');
-          });
-      })
-      .catch(error => {
-        console.error('Error during request to BrainShop:', error);
-        respond('Error during request to BrainShop');
-      });
-
-  } catch (e) {
-    respond("Oops, an error occurred: " + e);
-  }
+      translate(botResponse, { to: 'fr' })
+        .then(translatedResponse => {
+          repondre(translatedResponse);
+        })
+        .catch(error => {
+          console.error('Error translating to French:', error);
+          repondre('Error translating to French.');
+        });
+    })
+    .catch(error => {
+      console.error('Error with BrainShop request:', error);
+      repondre('Error with BrainShop request.');
+    });
+  } catch (e) { repondre("Oops, an error occurred: " + e); }
 });
 
-// dalle command
-xforcemd({ commandName: "dalle", reaction: "📡", category: "AI" }, async (dest, zk, commandOptions) => {
-  const { respond, arg, msg } = commandOptions;
-
+// DALL-E image generation command
+xforcemd({ nomCom: "dalle", reaction: "📡", categorie: "AI" }, async (dest, zk, commandeOptions) => {
+  const { repondre, arg, ms } = commandeOptions;
   try {
     if (!arg || arg.length === 0) {
-      return respond(`Please enter the necessary information to generate the image.`);
+      return repondre(`Please provide the information needed to generate the image.`);
     }
 
-    // Combine arguments into a single string
     const image = arg.join(' ');
     const response = await axios.get(`https://vihangayt.me/tools/photoleap?q=${image}`);
     
     const data = response.data;
-    let caption = '*Powered by ZOKOU-MD*';
+    let caption = '*Powered by XFORCE-MD*';
     
     if (data.status && data.owner && data.data) {
-      // Use the data returned by the service
       const imageUrl = data.data;
-      zk.sendMessage(dest, { image: { url: imageUrl }, caption: caption }, { quoted: msg });
+      zk.sendMessage(dest, { image: { url: imageUrl }, caption: caption }, { quoted: ms });
     } else {
-      respond("Error generating the image");
+      repondre("Error generating the image");
     }
   } catch (error) {
     console.error('Error:', error.message || 'An error occurred');
-    respond("Oops, an error occurred while processing your request.");
+    repondre("Oops, an error occurred while processing your request.");
   }
 });
 
-// gpt command
-xforcemd({ commandName: "gpt", reaction: "📡", category: "AI" }, async (dest, zk, commandOptions) => {
-  const { respond, arg, msg } = commandOptions;
-
+// GPT command for chat responses
+xforcemd({ nomCom: "gpt", reaction: "📡", categorie: "AI" }, async (dest, zk, commandeOptions) => {
+  const { repondre, arg, ms } = commandeOptions;
   try {
     if (!arg || arg.length === 0) {
-      return respond(`Please ask a question.`);
+      return repondre(`Please ask a question.`);
     }
 
-    // Combine arguments into a single string
     const question = arg.join(' ');
     const response = await axios.get(`https://vihangayt.me/tools/chatgpt4?q=${question}`);
     
     const data = response.data;
     if (data) {
-      respond(data.data);
+      repondre(data.data);
     } else {
-      respond("Error generating the response");
+      repondre("Error generating the response");
     }
   } catch (error) {
     console.error('Error:', error.message || 'An error occurred');
-    respond("Oops, an error occurred while processing your request.");
+    repondre("Oops, an error occurred while processing your request.");
   }
 });
 
-// image recognition command
-xforcemd({ commandName: "recognize", reaction: "📡", category: "AI" }, async (dest, zk, commandOptions) => {
-  const { respond, arg, msg } = commandOptions;
-
+// New Command 1: Text Summarization
+xforcemd({ nomCom: "summarize", reaction: "📡", categorie: "AI" }, async (dest, zk, commandeOptions) => {
+  const { repondre, arg, ms } = commandeOptions;
   try {
     if (!arg || arg.length === 0) {
-      return respond(`Please upload an image for recognition.`);
+      return repondre("Please provide text to summarize.");
     }
 
-    // Use image recognition API
-    const image = arg.join(' ');
-    const response = await axios.post(`https://api.imagga.com/v2/tags`, { image });
-    
-    const data = response.data;
-    if (data && data.result) {
-      respond(`Here are the tags I found: ${data.result.tags.map(tag => tag.tag.en).join(', ')}`);
-    } else {
-      respond("Error recognizing the image");
-    }
-  } catch (error) {
-    console.error('Error:', error.message || 'An error occurred');
-    respond("Oops, an error occurred while processing the image.");
-  }
-});
-
-// speech-to-text command
-xforcemd({ commandName: "speech", reaction: "📡", category: "AI" }, async (dest, zk, commandOptions) => {
-  const { respond, arg, msg } = commandOptions;
-
-  try {
-    if (!arg || arg.length === 0) {
-      return respond(`Please upload an audio file for speech-to-text conversion.`);
-    }
-
-    // Send the audio file to a speech-to-text API
-    const audio = arg.join(' ');
-    const response = await axios.post(`https://api.speechapi.com/v1/convert`, { audio });
-    
-    const data = response.data;
-    if (data && data.transcription) {
-      respond(`Here is the transcription: ${data.transcription}`);
-    } else {
-      respond("Error converting speech to text");
-    }
-  } catch (error) {
-    console.error('Error:', error.message || 'An error occurred');
-    respond("Oops, an error occurred while processing the audio.");
-  }
-});
-
-// text summarization command
-xforcemd({ commandName: "summarize", reaction: "📡", category: "AI" }, async (dest, zk, commandOptions) => {
-  const { respond, arg, msg } = commandOptions;
-
-  try {
-    if (!arg || arg.length === 0) {
-      return respond(`Please provide the text you want to summarize.`);
-    }
-
-    // Summarize the provided text
     const text = arg.join(' ');
-    const response = await axios.post(`https://api.summarization.com/v1/summarize`, { text });
-    
-    const data = response.data;
-    if (data && data.summary) {
-      respond(`Here is the summary: ${data.summary}`);
-    } else {
-      respond("Error summarizing the text");
-    }
+    const response = await axios.post(`https://api.text-summarization.com/summarize`, { text });
+
+    const summary = response.data.summary;
+    repondre(`Summary: ${summary}`);
   } catch (error) {
-    console.error('Error:', error.message || 'An error occurred');
-    respond("Oops, an error occurred while summarizing the text.");
+    console.error('Error summarizing text:', error.message);
+    repondre("Error summarizing the text.");
   }
 });
-// keyword extraction command
-xforcemd({ commandName: "keywords", reaction: "📡", category: "AI" }, async (dest, zk, commandOptions) => {
-  const { respond, arg, msg } = commandOptions;
 
+// New Command 2: Sentiment Analysis
+xforcemd({ nomCom: "sentiment", reaction: "📡", categorie: "AI" }, async (dest, zk, commandeOptions) => {
+  const { repondre, arg, ms } = commandeOptions;
   try {
     if (!arg || arg.length === 0) {
-      return respond(`Please provide the text for keyword extraction.`);
+      return repondre("Please provide text for sentiment analysis.");
     }
 
-    // Extract keywords from the text
     const text = arg.join(' ');
-    const response = await axios.post(`https://api.keywordextraction.com/v1/extract`, { text });
-    
-    const data = response.data;
-    if (data && data.keywords) {
-      respond(`Extracted keywords: ${data.keywords.join(', ')}`);
-    } else {
-      respond("Error extracting keywords");
-    }
+    const response = await axios.post(`https://api.sentiment-analysis.com/analyze`, { text });
+
+    const sentiment = response.data.sentiment;
+    repondre(`Sentiment: ${sentiment}`);
   } catch (error) {
-    console.error('Error:', error.message || 'An error occurred');
-    respond("Oops, an error occurred while extracting keywords.");
+    console.error('Error analyzing sentiment:', error.message);
+    repondre("Error analyzing sentiment.");
   }
 });
-  
-// sentiment analysis command
-xforcemd({ commandName: "sentiment", reaction: "📡", category: "AI" }, async (dest, zk, commandOptions) => {
-  const { respond, arg, msg } = commandOptions;
 
+// New Command 3: Language Detection
+xforcemd({ nomCom: "detectlang", reaction: "📡", categorie: "AI" }, async (dest, zk, commandeOptions) => {
+  const { repondre, arg, ms } = commandeOptions;
   try {
     if (!arg || arg.length === 0) {
-      return respond(`Please provide the text for sentiment analysis.`);
+      return repondre("Please provide text for language detection.");
     }
 
-    // Analyze sentiment in the text
     const text = arg.join(' ');
-    const response = await axios.post(`https://api.sentimentanalysis.com/v1/analyze`, { text });
-    
-    const data = response.data;
-    if (data && data.sentiment) {
-      respond(`Sentiment: ${data.sentiment}`);
-    } else {
-      respond("Error analyzing sentiment");
-    }
+    const response = await axios.post(`https://api.language-detection.com/detect`, { text });
+
+    const language = response.data.language;
+    repondre(`Detected Language: ${language}`);
   } catch (error) {
-    console.error('Error:', error.message || 'An error occurred');
-    respond("Oops, an error occurred while analyzing sentiment.");
+    console.error('Error detecting language:', error.message);
+    repondre("Error detecting the language.");
   }
 });
-// language detection command
-xforcemd({ commandName: "detectlang", reaction: "📡", category: "AI" }, async (dest, zk, commandOptions) => {
-  const { respond, arg, msg } = commandOptions;
 
+// New Command 4: Text Translation
+xforcemd({ nomCom: "translate", reaction: "📡", categorie: "AI" }, async (dest, zk, commandeOptions) => {
+  const { repondre, arg, ms } = commandeOptions;
+  try {
+    if (!arg || arg.length < 2) {
+      return repondre("Usage: .translate <language-code> <text>");
+    }
+
+    const lang = arg[0];
+    const text = arg.slice(1).join(' ');
+    const translatedText = await translate(text, { to: lang });
+
+    repondre(`Translated Text: ${translatedText}`);
+  } catch (error) {
+    console.error('Error translating text:', error.message);
+    repondre("Error translating the text.");
+  }
+});
+
+// New Command 5: Text-to-Speech
+xforcemd({ nomCom: "tts", reaction: "📡", categorie: "AI" }, async (dest, zk, commandeOptions) => {
+  const { repondre, arg, ms } = commandeOptions;
   try {
     if (!arg || arg.length === 0) {
-      return respond(`Please provide the text for language detection.`);
+      return repondre("Please provide text for text-to-speech.");
     }
 
-    // Detect language
     const text = arg.join(' ');
-    const response = await axios.post(`https://api.languagedetection.com/v1/detect`, { text });
-    
-    const data = response.data;
-    if (data && data.language) {
-      respond(`Detected language: ${data.language}`);
-    } else {
-      respond("Error detecting language");
-    }
+    const response = await axios.post(`https://api.text-to-speech.com/convert`, { text });
+
+    const audioUrl = response.data.audio;
+    zk.sendMessage(dest, { audio: { url: audioUrl }, mimetype: 'audio/mpeg' }, { quoted: ms });
   } catch (error) {
-    console.error('Error:', error.message || 'An error occurred');
-    respond("Oops, an error occurred while detecting language.");
+    console.error('Error converting text to speech:', error.message);
+    repondre("Error converting text to speech.");
   }
 });
 
-// emotion detection command
-xforcemd({ commandName: "emotion", reaction: "📡", category: "AI" }, async (dest, zk, commandOptions) => {
-  const { respond, arg, msg } = commandOptions;
-
+// New Command 6: Wikipedia Search
+xforcemd({ nomCom: "wiki", reaction: "📡", categorie: "AI" }, async (dest, zk, commandeOptions) => {
+  const { repondre, arg, ms } = commandeOptions;
   try {
     if (!arg || arg.length === 0) {
-      return respond(`Please provide the text for emotion detection.`);
+      return repondre("Please provide a search query for Wikipedia.");
     }
 
-    // Detect emotions in the text
-    const text = arg.join(' ');
-    const response = await axios.post(`https://api.emotiondetection.com/v1/detect`, { text });
-    
-    const data = response.data;
-    if (data && data.emotions) {
-      respond(`Detected emotions: ${data.emotions.join(', ')}`);
-    } else {
-      respond("Error detecting emotions");
-    }
+    const query = arg.join(' ');
+    const response = await axios.get(`https://en.wikipedia.org/api/rest_v1/page/summary/${query}`);
+
+    const title = response.data.title;
+    const description = response.data.extract;
+    const link = response.data.content_urls.desktop.page;
+
+    const message = `📖 **${title}**\n\n${description}\n🔗 Read more: ${link}`;
+    repondre(message);
   } catch (error) {
-    console.error('Error:', error.message || 'An error occurred');
-    respond("Oops, an error occurred while detecting emotions.");
+    console.error('Error fetching Wikipedia summary:', error.message);
+    repondre("Error fetching Wikipedia summary.");
   }
 });
+
+// New Command 7: Weather Forecast
+xforcemd({ nomCom: "weather", reaction: "📡", categorie: "AI" }, async (dest, zk, commandeOptions) => {
+  const { repondre, arg, ms } = commandeOptions;
+  try {
+        if (!arg || arg.length === 0) {
+      return repondre("Please provide a location for the weather forecast.");
+    }
+
+    const location = arg.join(' ');
+    const response = await axios.get(`https://api.weatherapi.com/v1/current.json?key=YOUR_API_KEY&q=${location}`);
+
+    const weatherData = response.data;
+    const locationName = weatherData.location.name;
+    const region = weatherData.location.region;
+    const country = weatherData.location.country;
+    const temperature = weatherData.current.temp_c;
+    const condition = weatherData.current.condition.text;
+    const humidity = weatherData.current.humidity;
+    const windSpeed = weatherData.current.wind_kph;
+
+    const weatherMessage = `
+🌍 Location: ${locationName}, ${region}, ${country}
+🌡️ Temperature: ${temperature}°C
+☁️ Condition: ${condition}
+💧 Humidity: ${humidity}%
+🌬️ Wind Speed: ${windSpeed} kph
+`;
+
+    repondre(weatherMessage);
+  } catch (error) {
+    console.error('Error fetching weather data:', error.message);
+    repondre("Error fetching the weather forecast.");
+  }
+});
+// New Command 8: Map Location
+xforcemd({ nomCom: "map", reaction: "🗺️", categorie: "AI" }, async (dest, zk, commandeOptions) => {
+  const { repondre, arg, ms } = commandeOptions;
+  try {
+    if (!arg || arg.length === 0) {
+      return repondre("Please provide a location to view the map.");
+    }
+
+    const location = arg.join(' ');
+    const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location)}`;
+
+    const message = `🗺️ **Map for:** ${location}\n\n🔗 [View Map](${mapUrl})`;
+    repondre(message);
+  } catch (error) {
+    console.error('Error fetching map link:', error.message);
+    repondre("Error fetching the map.");
+  }
+});
+
+// New Command 9: Locate by Phone Number
+xforcemd({ nomCom: "locate", reaction: "📍", categorie: "AI" }, async (dest, zk, commandeOptions) => {
+  const { repondre, arg, ms } = commandeOptions;
+  try {
+    if (!arg || arg.length !== 1) {
+      return repondre("Please provide a phone number to locate.");
+    }
+
+    const phoneNumber = arg[0];
+    const response = await axios.get(`https://api.numlookupapi.com/v1/locate?number=${phoneNumber}&apikey=YOUR_API_KEY`);
+
+    if (response.data.success) {
+      const location = response.data.location;
+      const country = response.data.country_name;
+      const carrier = response.data.carrier;
+
+      const message = `
+📞 **Phone Number:** ${phoneNumber}
+🌍 **Location:** ${location ? location : "Not available"}
+🇺🇸 **Country:** ${country ? country : "Not available"}
+📡 **Carrier:** ${carrier ? carrier : "Not available"}
+      `;
+      repondre(message);
+    } else {
+      repondre("Sorry, location for this phone number is not available.");
+    }
+  } catch (error) {
+    console.error('Error locating phone number:', error.message);
+    repondre("Error locating the phone number.");
+  }
+});
+
+// New Command 10: QR Code Generator
+xforcemd({ nomCom: "qrcode", reaction: "📱", categorie: "AI" }, async (dest, zk, commandeOptions) => {
+  const { repondre, arg, ms } = commandeOptions;
+  try {
+    if (!arg || arg.length === 0) {
+      return repondre("Please provide a text or URL to generate a QR code.");
+    }
+
+    const text = arg.join(' ');
+    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(text)}`;
+
+    const message = `📱 **QR Code for:** ${text}\n\n🔗 [View QR Code](${qrCodeUrl})`;
+    zk.sendMessage(dest, { image: { url: qrCodeUrl }, caption: message }, { quoted: ms });
+  } catch (error) {
+    console.error('Error generating QR code:', error.message);
+    repondre("Error generating the QR code.");
+  }
+});
+
+// New Command 11: Barcode Scanner (image URL)
+xforcemd({ nomCom: "barcode", reaction: "📦", categorie: "AI" }, async (dest, zk, commandeOptions) => {
+  const { repondre, arg, ms } = commandeOptions;
+  try {
+    if (!arg || arg.length === 0) {
+      return repondre("Please provide an image URL of a barcode.");
+    }
+
+    const imageUrl = arg[0];
+    const response = await axios.get(`https://api.barcodescannerapi.com/api/decode?image_url=${imageUrl}&apikey=YOUR_API_KEY`);
+
+    const barcodeData = response.data;
+    if (barcodeData && barcodeData.success) {
+      repondre(`📦 **Barcode Content:** ${barcodeData.data}`);
+    } else {
+      repondre("Error decoding the barcode. Please check the image.");
+    }
+  } catch (error) {
+    console.error('Error scanning barcode:', error.message);
+    repondre("Error scanning the barcode.");
+  }
+});
+
+// New Command 12: IP Address Lookup
+xforcemd({ nomCom: "iplookup", reaction: "🌍", categorie: "AI" }, async (dest, zk, commandeOptions) => {
+  const { repondre, arg, ms } = commandeOptions;
+  try {
+    if (!arg || arg.length === 0) {
+      return repondre("Please provide an IP address to look up.");
+    }
+
+    const ipAddress = arg[0];
+    const response = await axios.get(`https://ipinfo.io/${ipAddress}/json?token=YOUR_API_KEY`);
+
+    const ipData = response.data;
+    if (ipData) {
+      const message = `
+🌍 **IP Address:** ${ipAddress}
+📍 **Location:** ${ipData.city}, ${ipData.region}, ${ipData.country}
+📡 **ISP:** ${ipData.org}
+      `;
+      repondre(message);
+    } else {
+      repondre("Error looking up the IP address.");
+    }
+  } catch (error) {
+    console.error('Error looking up IP address:', error.message);
+    repondre("Error looking up the IP address.");
+  }
+});
+
+
+
+
+
+
+    
+    
