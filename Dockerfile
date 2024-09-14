@@ -11,10 +11,10 @@ RUN apt-get update && \
   rm -rf /var/lib/apt/lists/*
 
 # Clone the xforcemd repository from cobutech's GitHub
-RUN git clone https://github.com/cobutech/xforcemd-2.0 /root/xforcemd_Bot
+RUN git clone https://github.com/cobutech/MORTAL-KOMBAT-MD/root/MORTAL-KOMBAT_Bot
 
 # Set working directory
-WORKDIR /root/xforcemd_Bot/
+WORKDIR /root/MORTAL-KOMBAT-Bot/
 
 # Copy the package.json and install dependencies
 COPY package.json .
